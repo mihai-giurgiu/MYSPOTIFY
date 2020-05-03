@@ -14,7 +14,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -36,3 +35,13 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+.card_category {width: 200px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                text-align: left;
+                background-image: linear-gradient(purple,lightblue);
+                margin-left: 200px;
+                margin-top: 200px;}
