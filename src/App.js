@@ -44,16 +44,19 @@ function App() {
       <nav>
               <ul>
                   <li>
-                      <Link to = "/">Home</Link>
+                      <Link to = "/home">Home</Link>
                   </li>
                   <li>
-                      <Link to = "/">About</Link>
+                      <Link to = "/about">About</Link>
                   </li>
                   <li>
-                      <Link to = "/">Login</Link>
+                      <Link to = "/login">Login</Link>
                   </li>
                   <li>
-                      <Link to = "/">Contact</Link>
+                      <Link to = "/contact">Contact</Link>
+                  </li>
+                  <li>
+                      <Link to = "/category">Category</Link>
                   </li>
               </ul>
           </nav>
@@ -71,6 +74,11 @@ function App() {
           <Route 
             path="/login" 
             component={Login}
+          />
+
+          <Route
+            path="/category"
+            component={Category} 
           />
           
           {/* <Switch>

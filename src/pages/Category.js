@@ -10,7 +10,7 @@ class Category extends React.Component {
     render() {
         return (
             <div>
-                {"Category page for ${this.props}"}
+                {"Category page for $this.props"}
             </div>
         )
     }
