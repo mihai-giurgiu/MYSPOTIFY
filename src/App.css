@@ -36,12 +36,15 @@
   }
 }
 
+.MainNav{
+  margin-top: 550px;
+}
 
 
 .card_category {width: 200px;
                 border: 1px solid #ccc;
                 border-radius: 10px;
-                text-align: left;
+                text-align: center;
                 background-image: linear-gradient(purple,lightblue);
                 margin-left: 200px;
                 margin-top: 200px;}

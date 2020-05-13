@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import MainNav from './components/Navbar';
+
 
 // const reactAnchor = React.createElement('a', {
 //   href: "https://www.w3schools.com/react/",

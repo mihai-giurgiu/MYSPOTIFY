@@ -1,7 +1,7 @@
 import React from 'react';
 import './LabelInput.css' 
-import { faHome } from "@fortawesome/react-fontawesome";
-import { FontAwesomeIcon } from "@fortawesome/free-solid-svg-icons";
+//import { faHome } from "@fortawesome/react-fontawesome";
+//import { FontAwesomeIcon } from "@fortawesome/free-solid-svg-icons";
 
 //import { ReactComponent } from '*.svg';
 
@@ -58,11 +58,15 @@ class LabelInput extends React.Component{
         console.log("componentDidUpdate")
     }
 
-    onChangeHandler = (e) => {
-        console.log(e.target.value)  
+    onChangeHandler = e => {
+        console.log(e.target.value);
+        const value = e.target.value
+
+        this.props.change(this.props.id, value)
+
         this.setState({
-            value: e.target.value
-        });                                        
+            value: value
+        });
     };
 
     render() {
@@ -76,10 +80,13 @@ class LabelInput extends React.Component{
         console.log("LabelInput - Inside Rander");
         return (
             <div className="label-input input-group" >
-                <label htmlFor = {this.props.id} 
-                style = {style}>
+                <label 
+                    htmlFor = {this.props.id} 
+                    style = {style}>
+                    
                     {this.props.label}
-                </label><input 
+                </label>
+                <input 
                     type = "text"
                     placeholder = {this.props.placeholder}
                     id = {this.props.id}
@@ -87,9 +94,9 @@ class LabelInput extends React.Component{
                     onChange = {this.onChangeHandler}
                     className ="form-control"
                 />
-                <FontAwesomeIcon
+                {/* <FontAwesomeIcon
                     icon={ faHome }
-                /> 
+                />  */}
             </div>
         
             );

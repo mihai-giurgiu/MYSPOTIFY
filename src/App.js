@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import { Route, Link, Switch } from 'react-router-dom';
 //import LabelInput from './loginInput';
@@ -7,6 +7,12 @@ import { Route, Link, Switch } from 'react-router-dom';
 import About from './pages/About.js';
 import Login from './pages/Login.js';
 import Category from './pages/Category.js';
+import Categories from './pages/Categories.js';
+import MainNav from './components/Navbar.js'; 
+import SpotifyCallback from './pages/SpotifyCallback'; 
+import Playlists from './pages/Playlists';
+
+
 
 
 
@@ -40,46 +46,53 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-      <nav>
-              <ul>
-                  <li>
-                      <Link to = "/home">Home</Link>
-                  </li>
-                  <li>
-                      <Link to = "/about">About</Link>
-                  </li>
-                  <li>
-                      <Link to = "/login">Login</Link>
-                  </li>
-                  <li>
-                      <Link to = "/contact">Contact</Link>
-                  </li>
-                  <li>
-                      <Link to = "/category">Category</Link>
-                  </li>
-              </ul>
-          </nav>
-      </header>
+     
         <main>
+          <Switch>
           <Route 
-            path="/" 
-            exact
-            render={() => <div>Home page</div>} 
+                path="/navbar" 
+                component={MainNav}
           />
-          <Route 
-            path="/about" 
-            component={About}
-          />
-          <Route 
-            path="/login" 
-            component={Login}
-          />
+            <Route 
+              path="/" 
+              exact
+              render={() => <div>Homepage</div>
+            } 
+            />
+            <Route 
+              path="/about" 
+              component={About}
+            />
+            <Route 
+              path="/login" 
+              component={Login}
+            />
 
-          <Route
-            path="/category"
-            component={Category} 
-          />
+            <Route
+              path="/callback"
+              component={SpotifyCallback}
+            />
+            <Route
+              path="/categories"
+              exact 
+              component={Categories}
+            />
+
+            <Route
+              path="/category"
+              component={Category}
+            />
+            <Route
+              path="/playlists"
+              component={Playlists}
+            />
+
+            </Switch>
+
+</main>
+    </div>
+  );
+}
           
           {/* <Switch>
           <Route path="/" 
@@ -97,10 +110,7 @@ function App() {
                   component={Category}
           />
           </Switch> */}
-        </main>
-    </div>
-  );
-}
+        
 
 export default App;
 
