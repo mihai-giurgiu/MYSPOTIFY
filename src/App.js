@@ -11,6 +11,7 @@ import Categories from './pages/Categories.js';
 import MainNav from './components/Navbar.js'; 
 import SpotifyCallback from './pages/SpotifyCallback'; 
 import Playlists from './pages/Playlists';
+import Tracks from './pages/Tracks'; 
 
 
 
@@ -82,8 +83,14 @@ function App() {
               path="/category"
               component={Category}
             />
+
             <Route
-              path="/playlists"
+              path="/tracks/:id"
+              component={Tracks}
+            />
+
+            <Route
+              path="/playlists/:id"
               component={Playlists}
             />
 

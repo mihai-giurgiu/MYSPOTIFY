@@ -1,5 +1,5 @@
 import React from 'react'
-import {withRouter} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
 
 
 class Playlists extends React.Component {
@@ -13,8 +13,6 @@ class Playlists extends React.Component {
 
         const categoryId = this.props.match && this.props.match.params ?
             this.props.match.params.id : null;
-
-            console.log(this.props.match.params);
 
         if(categoryId !== null && categoryId !== undefined){
             const token = localStorage.getItem('token'); 
@@ -69,16 +67,32 @@ class Playlists extends React.Component {
                 </h1>
                 <section>
                     {
+                       
                         this.state.playlists.map(playlist => {
                             return (
+                            <Link
+                            to={{
+                                pathname: `/tracks/${playlist.id}`,
+                                state: {
+                                    categoryName:playlist.name
+                                }
+                            }}
+                        >
                                 <div>
+                                    <img 
+                                        src ={playlist.image} 
+                                            alt={`Playlist ${playlist.name} image`}/>
+                                    <h3>
                                     {
                                         playlist.name
                                     }
+                                    </h3>
                                 </div>
+                            </Link>
                             )
                         })
                     }
+                    
                 </section>
             </div>
 
