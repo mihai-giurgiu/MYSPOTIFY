@@ -1,6 +1,9 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
+import Player from '../components/Player';
+import { checkAndReturnToken } from '../Utils';
+
 class Tracks extends React.Component{
 
     state ={
@@ -10,6 +13,12 @@ class Tracks extends React.Component{
     
     componentDidMount(){
         
+        const token = checkAndReturnToken(this.props.history)
+
+        if(token === null){
+            return;
+        }
+
         const playlistId = this.props.match && this.props.match.params ?
             this.props.match.params.id : null;
 
@@ -42,9 +51,10 @@ class Tracks extends React.Component{
 
                     }
                 });
-                this.setState= ({
+                this.setState({
                     tracks: tracks
                 });
+                
             });
         }
 
@@ -53,6 +63,7 @@ class Tracks extends React.Component{
     
 
     onTrackClickedHandler = (id) => {
+        //console.log(id)
         this.setState({
             currentTrackId: id
         })
@@ -77,7 +88,8 @@ class Tracks extends React.Component{
                 { this.state.tracks.map( track => {
                         return(
                             <section
-                                onClick= {(track) => {
+                                onClick= {(event) => {
+                                    // console.log(track.id);
                                     this.onTrackClickedHandler(track.id); 
                                 }}
                             
@@ -104,6 +116,11 @@ class Tracks extends React.Component{
                     }
                 )}
             </div>
+            <section>
+                <Player
+                    trackId = { this.state.currentTrackId }
+                />
+            </section>
         </div>
         )
     }

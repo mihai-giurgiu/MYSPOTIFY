@@ -1,6 +1,7 @@
 import React from 'react';
 import Category from './Category';
 import { withRouter } from 'react-router-dom';
+import { checkAndReturnToken } from '../Utils';
 
 class Categories extends React.Component {
     state ={
@@ -9,13 +10,32 @@ class Categories extends React.Component {
 
     componentDidMount () {
 
-        const token = localStorage.getItem('token'); 
-        const parseToken = JSON.parse(token);
+        // const token = localStorage.getItem('token'); 
+
+        // if(token === null || token === undefined){
+        //     if(this.props.history){
+        //         return this.props.history.push('/login');
+        //     }
+        // } 
+        // const parseToken = JSON.parse(token);
+
+        // const date =new Date();
+        // if(parseToken.expiration < date.getTime() ){
+        //     if(this.props.history){
+        //         return this.props.history.push('/login');
+        //     }
+        // }
+
+        const token = checkAndReturnToken(this.props.history)
+
+        if(token === null){
+            return;
+        }
 
         fetch('https://api.spotify.com/v1/browse/categories', {
             method: 'GET',
             headers: {
-                Authorization: `Bearer ${parseToken.token}`
+                Authorization: `Bearer ${token}`
             }
         }).then(result => {
             console.log(result)

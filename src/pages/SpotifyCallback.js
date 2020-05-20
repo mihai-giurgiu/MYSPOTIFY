@@ -11,7 +11,7 @@ componentDidMount() {
         const date = new Date()
         const token = {
             token: parseString.access_token, 
-            expiration : date.getTime() + (parseString.expires_in * 1000)
+            expiration : date.getTime() + parseString.expires_in * 1000
         };
 
         localStorage.setItem('token', JSON.stringify(token)); 
