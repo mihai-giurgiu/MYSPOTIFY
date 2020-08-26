@@ -1,0 +1,16 @@
+.Play{
+    width: 33%;
+    display: inline-block;
+    border: 20px solid white;
+}
+
+.PlaylistName{
+    width: 66%;
+    text-size: medium;
+}
+
+.Name{
+    width: 99%;
+    text-align: center;
+}
+

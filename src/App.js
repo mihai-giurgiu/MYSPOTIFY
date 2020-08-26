@@ -12,6 +12,7 @@ import MainNav from './components/Navbar.js';
 import SpotifyCallback from './pages/SpotifyCallback'; 
 import Playlists from './pages/Playlists';
 import Tracks from './pages/Tracks'; 
+import Home from './pages/Home';
 
 
 
@@ -55,10 +56,8 @@ function App() {
                 component={MainNav}
           />
             <Route 
-              path="/" 
-              exact
-              render={() => <div>Homepage</div>
-            } 
+              path="/home" 
+              component={Home}
             />
             <Route 
               path="/about" 

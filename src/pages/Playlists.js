@@ -1,5 +1,6 @@
 import React from 'react'
 import {withRouter, Link} from 'react-router-dom'
+import './Playlists.css';
 
 
 class Playlists extends React.Component {
@@ -60,17 +61,19 @@ class Playlists extends React.Component {
         return(
 
             <div>
+                <div className="Name">
                 <h1>
                     {
                         categoryName
                     }
                 </h1>
+                </div>
                 <section>
                     {
                        
                         this.state.playlists.map(playlist => {
                             return (
-                            <Link
+                            <Link className="Play"
                             to={{
                                 pathname: `/tracks/${playlist.id}`,
                                 state: {

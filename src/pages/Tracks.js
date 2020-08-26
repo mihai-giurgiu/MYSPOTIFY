@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 import Player from '../components/Player';
 import { checkAndReturnToken } from '../Utils';
+import Track from '../components/Track';
 
 class Tracks extends React.Component{
 
@@ -78,6 +79,8 @@ class Tracks extends React.Component{
 
             
         return(
+
+        
         <div>
             <h1>
                 {
@@ -87,31 +90,13 @@ class Tracks extends React.Component{
             <div>
                 { this.state.tracks.map( track => {
                         return(
-                            <section
-                                onClick= {(event) => {
-                                    // console.log(track.id);
-                                    this.onTrackClickedHandler(track.id); 
-                                }}
-                            
-                            >
-                                <h3>
-                                    { track.name }
-                                </h3>
-                                <section>
-                                    <ul>
-                                        { track.artists.map(artist => {
-                                            return (
-                                                <ol>
-                                                    { artist }
-                                                </ol>
-                                            )
-                                        }) }
-                                    </ul>
-                                </section>
-                                <p>
-                                    { track.duration.toFixed(2) }
-                                </p>
-                            </section>
+                            <Track 
+                                pickTrack = {this.onTrackClickedHandler}
+                                id = {track.id}
+                                name = {track.name}
+                                artists = {track.artists}
+                                duration = {track.duration}
+                            />
                         )
                     }
                 )}
